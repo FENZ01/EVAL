@@ -2,12 +2,9 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY requirement.txt
+COPY requirements.txt /app/
 
-RUN pip install -r requirement.txt
+RUN pip install -r requirements.txt
 
-COPY ./app/main.py
-
-RUN uvicorn main:app --reload --port=8000
-
+COPY ./app/main.py /app/
 
